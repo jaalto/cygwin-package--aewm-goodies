@@ -11,15 +11,16 @@ gradient on the X root window; aewm++_xsession: keeps an X session
 alive.
 
 Runtime requirements:
-  cygwin
-  xorg-x11-base
-  xorg-x11-bin-dlls
+  libX11_6
+  libXext6
+  libXpm4
+  libstdc++6
 
 Build requirements:
-  cygwin
-  xorg-x11-base
-  xorg-x11-bin-dlls
-  xorg-x11-devel
+  libX11-devel
+  libXext-devel
+  libXpm4-noX-devel
+  g++
 
 Canonical homepage:
   http://packages.debian.org/aewm++-goodies
@@ -49,43 +50,20 @@ Language:
 ------------------------------------
 
 Build instructions:
-  unpack aewm++-goodies-1.0-1-src.tar.bz2
+  unpack aewm++-goodies-1.0-2-src.tar.bz2
     if you use setup to install this src package, it will be
     unpacked under /usr/src automatically
   cd /usr/src
   ./aewm++-goodies*.sh all
 
 This will create:
-  aewm++-goodies-1.0-1.tar.bz2
-  aewm++-goodies-1.0-1-src.tar.bz2
+  aewm++-goodies-1.0-2.tar.xz
+  aewm++-goodies-1.0-2-src.tar.xz
 
 -------------------------------------------
 
 Files included in the binary distribution:
-
-etc/X11/appbar/appbar.rc
-usr/bin/aewm++_appbar.exe
-usr/bin/aewm++_fspanel.exe
-usr/bin/aewm++_setrootimage.exe
-usr/bin/aewm++_xsession.exe
-usr/share/appbar/images/calculator.xpm
-usr/share/appbar/images/chat.xpm
-usr/share/appbar/images/clock.xpm
-usr/share/appbar/images/default.xpm
-usr/share/appbar/images/editor.xpm
-usr/share/appbar/images/filemgr.xpm
-usr/share/appbar/images/galeon.xpm
-usr/share/appbar/images/gimp.xpm
-usr/share/appbar/images/icq.xpm
-usr/share/appbar/images/music.xpm
-usr/share/appbar/images/netscape.xpm
-usr/share/appbar/images/terminal.xpm
-usr/share/appbar/images/xv.xpm
-usr/share/doc/Cygwin/aewm++-goodies-1.0.README
-usr/share/man/man1/aewm++_appbar.1x.gz
-usr/share/man/man1/aewm++_fspanel.1x.gz
-usr/share/man/man1/aewm++_setrootimage.1.gz
-usr/share/man/man1/aewm++_xsession.1x.gz
+  See Cygwin package archive
 
 ------------------
 
@@ -95,8 +73,11 @@ Port Notes:
 - No toplevel Makefile: wrote one.
 - No manual pages. Copied from Debian.
 
+----- version 1.0-2 -----
+- New upstream release 2015-07-17 Jari Aalto
+
 ----- version 1.0-1 -----
 - Initial release 2007-09-20 Jari Aalto
 
 Cygwin port maintained by: Jari Aalto <jari.aalto@cante.net>
-Copyright (C) 2007 Jari Aalto; Licenced under GPL v2 or later
+Copyright (C) 2007-2015 Jari Aalto; Licenced under GPL v2 or later

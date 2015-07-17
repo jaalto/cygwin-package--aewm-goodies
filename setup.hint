@@ -7,4 +7,4 @@ aewm++_fspanel: a very small panel; aewm++_setrootimage: draws a
 gradient on the X root window; aewm++_xsession: keeps an X session
 alive."
 category: X11
-requires: cygwin xorg-x11-base xorg-x11-bin-dlls
+requires: libX11_6 libXext6 libXpm4 libstdc++6
