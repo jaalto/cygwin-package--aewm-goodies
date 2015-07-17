@@ -1,0 +1,25 @@
+diff --git a/Makefile b/Makefile
+new file mode 100644
+index 0000000..03d19b4
+--- /dev/null
++++ b/Makefile
+@@ -0,0 +1,19 @@
++# Copyright (C) 2007 Jari Aalto; Licenced under GPL v2 or later
++
++all:
++	$(MAKE) -C ae_fspanel-1.0
++	$(MAKE) -C appbar-1.0
++	$(MAKE) -C setrootimage-1.0
++	$(MAKE) -C xsession
++
++install:
++	$(MAKE) -C ae_fspanel-1.0 install
++	$(MAKE) -C appbar-1.0 install
++	$(MAKE) -C setrootimage-1.0 install
++	$(MAKE) -C xsession install
++
++clean:
++	$(MAKE) -C ae_fspanel-1.0 clean
++	$(MAKE) -C appbar-1.0 clean
++	$(MAKE) -C setrootimage-1.0 clean
++	$(MAKE) -C xsession clean

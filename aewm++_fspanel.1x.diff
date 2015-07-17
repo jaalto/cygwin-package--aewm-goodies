@@ -1,0 +1,12 @@
+=== modified file 'aewm++_fspanel.1x'
+--- aewm++_fspanel.1x	2007-09-20 09:36:18 +0000
++++ aewm++_fspanel.1x	2007-09-20 09:41:39 +0000
+@@ -21,6 +21,6 @@
+ .SH "AUTHOR"
+ fspanel by Peter Zelezny <zed@linuxpower.org>, 
+ modified by Frank Hale <frankhale@yahoo.com>, 
+-renamed to aewm++_fspanel for the Debian package.
++renamed to aewm++_fspanel.
+ .SH "WEBSITE"
+ http://sapphire.sourceforge.net/
+

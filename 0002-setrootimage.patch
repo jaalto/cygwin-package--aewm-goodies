@@ -1,0 +1,41 @@
+ setrootimage-1.0/Makefile        |    7 ++++---
+ setrootimage-1.0/setrootimage.cc |    2 ++
+ 2 files changed, 6 insertions(+), 3 deletions(-)
+
+diff --git a/setrootimage-1.0/Makefile b/setrootimage-1.0/Makefile
+index 99a95e6..3acda8e 100644
+--- a/setrootimage-1.0/Makefile
++++ b/setrootimage-1.0/Makefile
+@@ -5,7 +5,7 @@ INCLUDES  = -I$(prefix)/include
+ LIBS      = -lX11 -lXext
+ LDPATH    = -L/usr/X11R6/lib
+ 
+-PROG      = setrootimage
++PROG      = aewm++_setrootimage
+ #DEFINES   = -DDEBUG
+ 
+ OBJS      = setrootimage.o linkedlist.o image.o
+@@ -19,7 +19,8 @@ $(OBJS): %.o: %.cc $(HEADERS)
+ 	$(CC) $(CFLAGS) $(DEFINES) $(INCLUDES) -c $< -o $@
+ 
+ install: all
+-	install -s $(PROG) $(DESTDIR)$(prefix)/bin
++	install -m 755 -d $(DESTDIR)$(prefix)/bin
++	install -m 755 -s $(PROG) $(DESTDIR)$(prefix)/bin
+ 
+ clean:
+-	rm -f $(PROG) $(OBJS) core
++	rm -f $(PROG) *.exe $(OBJS) core
+diff --git a/setrootimage-1.0/setrootimage.cc b/setrootimage-1.0/setrootimage.cc
+index d9f0932..43a9163 100644
+--- a/setrootimage-1.0/setrootimage.cc
++++ b/setrootimage-1.0/setrootimage.cc
+@@ -38,6 +38,8 @@
+ #include <iostream>
+ #include "image.hh"
+ 
++using namespace std;
++
+ BColor parseCommandlineColor(char* the_color)
+ {
+ 	BColor color;

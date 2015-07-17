@@ -1,0 +1,183 @@
+.\" appbar - a small application launcher
+.\" by Frank Hale
+.\" Released under the terms of the GNU GPL. www.gnu.org
+.\" Free software! Please see README for details and license. --
+.TH aewm++_appbar 1
+.SH "NAME"
+aewm++_appbar \- a small application launcher
+.SH "SYNOPSIS"
+.BI aewm++_appbar
+
+.SH "DESCRIPTION"
+.B appbar
+is a small application launcher. It uses small 16x16 pixmaps to form
+icons so that you can quickly launch your favorite programs.
+
+NOTE: Currently using any other size pixmap will result in unwanted behavior in
+that the appbar main window will not have proper placement of those icons.
+
+To change the list of icons, edit the file
+.B /etc/X11/appbar/appbar.rc
+
+The install process installs some pixmaps into
+.B /usr/share/appbar/images/
+, these are 16x16 pixmaps for use with the appbar. They were downloaded from
+.B http://wm-icons.sourceforge.net/data/wm-icons-current/icons/16x16-general/
+and are GPL'd.
+
+.SH "RC FILE SYNTAX"
+
+The resource file syntax is simple. A definition of an icon looks like the
+following.
+
+use vertical_placement or horizontal_placement to customize the appbar
+look.
+
+.sp 1n
+.PD 0
+.TP
+	icon {
+.TP
+		image = images/terminal.xpm;
+.TP
+		execute = xterm -bg black -fg white -ls;
+.TP
+	}
+.PD
+.LP
+
+Inside the icon construct you have two additional variables. The first variable
+is the name of the image followed by an equals sign then the path and filename
+of the xpm followed by a semi-colon.
+
+The second variable is execute. Its syntax is similar in that the only
+difference from images is the path to the executable you wish this icon to
+launch when clicked.
+
+For appbar placement use the following commands in the rc file.
+
+.sp 1n
+.PD 0
+.TP
+.B
+	Appbar Style
+.TP
+		vertical_placement
+.TP
+		horizontal_placement
+.sp 1n
+.TP
+.B
+	Appbar Screen Placement
+.TP
+		northwest_placement
+.TP
+		northeast_placement
+.TP
+		southwest_placement
+.TP
+		southeast_placement
+.PD
+.LP
+
+To configure a different background gradient for the appbar use the following commands.
+
+.sp 1n
+.PD 0
+.TP
+	appbar_color_from {
+.TP
+		red=99;
+.TP
+		green=99;
+.TP
+		blue=99;
+.TP
+	}
+.sp 1n
+.TP
+	appbar_color_to {
+.TP
+		red=cc;
+.TP
+		green=cc;
+.TP
+		blue=cc;
+.TP
+	}
+.PD
+.LP
+
+NOTE: image and execute variables are ended with a semi-colon. The icon construct is
+enclosed in braces.
+
+Usage: Appbar is extremely simple to use. When icons are clicked they launch
+applications associated with them. When the grill is clicked (at the right edge)
+it shades the window to the upper left corner. Clicking it again unshades it to
+its original size. Middle clicking on the grill will close the application.
+
+Gradient Theme: Appbar takes advantage of blackbox's image gradient code. You
+can configure a different color theme only by editing appbar.cc in the appbar
+constructor.
+
+Appbar uses a default icon which was taken from fspanel, credit goes to the
+author for it. This icons purpose is a fail safe backup incase the requested
+icon cannot be found.
+
+.SH "RC FILE EXAMPLE"
+
+.sp 1n
+.PD 0
+.TP
+	vertical_placement
+.TP
+	northwest_placement
+.sp 1n
+.TP
+	appbar_color_from {
+.TP
+		red=99;
+.TP
+		green=99;
+.TP
+		blue=99;
+.TP
+	}
+.sp 1n
+.TP
+	appbar_color_to {
+.TP
+		red=cc;
+.TP
+		green=cc;
+.TP
+		blue=cc;
+.TP
+	}
+.sp 1n
+.TP
+	icon {
+.TP
+		image = /usr/X11/share/appbar/images/terminal.xpm;
+.TP
+		execute = xterm -bg black -fg white -ls;
+.TP
+	}
+.sp 1n
+.TP
+	icon {
+.TP
+		image = /usr/X11/share/appbar/images/netscape.xpm;
+.TP
+		execute = /opt/mozilla/./mozilla;
+.TP
+	}
+.PD
+.LP
+
+.SH "AUTHOR"
+appbar is supplied with aewm++ by Frank Hale <frankhale@yahoo.com>.
+It was renamed to aewm++_appbar.
+
+.SH "WEBSITE"
+http://sapphire.sourceforge.net/

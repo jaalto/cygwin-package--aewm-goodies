@@ -1,0 +1,10 @@
+# Copyright (C) 2007 Jari Aalto; Licenced under GPL v2 or later
+sdesc: "Utilities to complement a minimal window manager"
+ldesc: "These utilities were previously supplied with aewm++; they are
+intended to provide some of the typical desktop functionality. This
+package provides: aewm++_appbar: a small application launcher;
+aewm++_fspanel: a very small panel; aewm++_setrootimage: draws a
+gradient on the X root window; aewm++_xsession: keeps an X session
+alive."
+category: X11
+requires: cygwin xorg-x11-base xorg-x11-bin-dlls

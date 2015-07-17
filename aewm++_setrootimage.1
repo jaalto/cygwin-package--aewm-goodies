@@ -1,0 +1,43 @@
+.\" setrootimage - puts a nice diagonal gradient image on the root window
+.\" by Frank Hale
+.\" Released under the terms of the GNU GPL. www.gnu.org
+.\" Free software! Please see README for details and license. --
+.TH aewm++_setrootimage 1
+.SH "NAME"
+aewm++_setrootimage \- puts a nice diagonal gradient image on the root window
+.SH "SYNOPSIS"
+.BI aewm++_setrootimage
+-display [display],
+-from [color],
+-to [color]
+
+.B aewm++_setrootimage
+-from 708090 -to cccccc
+
+.SH DESCRIPTION
+.B aewm++_setrootimage
+puts a nice diagonal gradient image on the root window.
+
+
+.SH OPTIONS
+
+.TP
+.B -display \fIdisplay\fP
+Specifies which display to set the root image on.
+.TP
+
+.TP
+.B -from \fIcolor\fP, -to \fIcolor\fP
+Use
+.I color
+for the start and end colors of the gradient, respectively.
+
+.SH "AUTHOR"
+setrootimage is supplied with aewm++ by Frank Hale <frankhale@yahoo.com>,
+and was renamed to aewm++_setrootimage.
+
+This code makes use of a version of the Blackbox image code. Many thanks
+go out to Brad Hughes the author of the Blackbox window manager.
+
+.SH "WEBSITE"
+http://sapphire.sourceforge.net/

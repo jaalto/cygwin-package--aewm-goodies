@@ -1,0 +1,13 @@
+=== modified file 'aewm++_setrootimage.1'
+--- aewm++_setrootimage.1	2007-09-20 09:36:18 +0000
++++ aewm++_setrootimage.1	2007-09-20 09:38:23 +0000
+@@ -34,7 +34,7 @@
+ 
+ .SH "AUTHOR"
+ setrootimage is supplied with aewm++ by Frank Hale <frankhale@yahoo.com>,
+-and was renamed to aewm++_setrootimage for the Debian package.
++and was renamed to aewm++_setrootimage.
+ 
+ This code makes use of a version of the Blackbox image code. Many thanks
+ go out to Brad Hughes the author of the Blackbox window manager.
+

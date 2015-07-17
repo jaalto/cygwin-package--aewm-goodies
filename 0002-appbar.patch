@@ -1,0 +1,119 @@
+ appbar-1.0/Makefile  |   18 ++++++++++--------
+ appbar-1.0/appbar.rc |   20 ++++++++++----------
+ appbar-1.0/icon.cc   |    2 ++
+ 3 files changed, 22 insertions(+), 18 deletions(-)
+
+diff --git a/appbar-1.0/Makefile b/appbar-1.0/Makefile
+index 8ede151..40620b5 100644
+--- a/appbar-1.0/Makefile
++++ b/appbar-1.0/Makefile
+@@ -5,7 +5,7 @@ INCLUDES  = -I$(prefix)/include
+ LIBS      = -lX11 -lXext -lXpm 
+ LDPATH    = -L/usr/X11R6/lib
+ 
+-PROG      = appbar
++PROG      = aewm++_appbar
+ DEFINES   = #-DDEBUG
+ 
+ OBJS      = main.o appbar.o scanner.o icon.o linkedlist.o image.o
+@@ -19,12 +19,14 @@ $(OBJS): %.o: %.cc $(HEADERS)
+ 	$(CC) $(CFLAGS) $(DEFINES) $(INCLUDES) -c $< -o $@
+ 
+ install: all
+-	install -s $(PROG) $(DESTDIR)$(prefix)/bin
+-	mkdir -p $(DESTDIR)/etc/X11/appbar
+-	mkdir -p $(DESTDIR)/usr/X11/share/appbar
+-	mkdir -p $(DESTDIR)/usr/X11/share/appbar/images
+-	cp appbar.rc $(DESTDIR)/etc/X11/appbar
+-	cp -r images/ $(DESTDIR)/usr/X11/share/appbar/
++	install -m 755 -d  \
++	  $(DESTDIR)$(prefix)/bin
++	install -m 644 -d \
++	  $(DESTDIR)/etc/X11/appbar \
++	  $(DESTDIR)/usr/share/appbar/images
++	install -m 755 -s $(PROG) $(DESTDIR)$(prefix)/bin/
++	install -m 644 appbar.rc $(DESTDIR)/etc/X11/appbar/
++	install -m 644 images/* $(DESTDIR)/usr/share/appbar/images/
+ 
+ clean:
+-	rm -f $(PROG) $(OBJS) core
++	rm -f $(PROG) *.exe $(OBJS) core
+diff --git a/appbar-1.0/appbar.rc b/appbar-1.0/appbar.rc
+index c845d30..2f37b73 100644
+--- a/appbar-1.0/appbar.rc
++++ b/appbar-1.0/appbar.rc
+@@ -14,51 +14,51 @@ appbar_color_to {
+ }
+ 
+ icon { 
+-	image = /usr/X11/share/appbar/images/terminal.xpm; 
++	image = /usr/share/appbar/images/terminal.xpm; 
+ 	execute = xterm -bg black -fg white -ls -sb;
+ }
+ 
+ icon { 
+-	image = /usr/X11/share/appbar/images/galeon.xpm; 
++	image = /usr/share/appbar/images/galeon.xpm; 
+ 	execute = galeon;
+ }
+ 
+ icon { 
+-	image = /usr/X11/share/appbar/images/netscape.xpm; 
++	image = /usr/share/appbar/images/netscape.xpm; 
+ 	execute = mozilla;
+ }
+ 
+ icon { 
+-	image = /usr/X11/share/appbar/images/gimp.xpm;
++	image = /usr/share/appbar/images/gimp.xpm;
+ 	execute = gimp;
+ }
+ 
+ icon { 
+-	image = /usr/X11/share/appbar/images/editor.xpm; 
++	image = /usr/share/appbar/images/editor.xpm; 
+ 	execute = nedit;
+ }
+ 
+ icon { 
+-	image = /usr/X11/share/appbar/images/calculator.xpm; 
++	image = /usr/share/appbar/images/calculator.xpm; 
+ 	execute = xcalc;
+ }
+ 
+ icon { 
+-	image = /usr/X11/share/appbar/images/chat.xpm; 
++	image = /usr/share/appbar/images/chat.xpm; 
+ 	execute = xchat;
+ }
+ 
+ icon { 
+-	image = /usr/X11/share/appbar/images/clock.xpm; 
++	image = /usr/share/appbar/images/clock.xpm; 
+ 	execute = xclock;
+ }
+ 
+ icon { 
+-	image = /usr/X11/share/appbar/images/music.xpm; 
++	image = /usr/share/appbar/images/music.xpm; 
+ 	execute = xmms;
+ }
+ 
+ icon { 
+-	image = /usr/X11/share/appbar/images/icq.xpm; 
++	image = /usr/share/appbar/images/icq.xpm; 
+ 	execute = licq;
+ }
+diff --git a/appbar-1.0/icon.cc b/appbar-1.0/icon.cc
+index c3e4d1a..f0c410a 100644
+--- a/appbar-1.0/icon.cc
++++ b/appbar-1.0/icon.cc
+@@ -35,6 +35,8 @@
+ 
+ #include "icon.hh"
+ 
++using namespace std;
++
+ char * default_icon_xpm[] = {
+ "16 16 16 1",
+ " 	c None",

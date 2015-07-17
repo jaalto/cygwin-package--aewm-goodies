@@ -1,0 +1,33 @@
+.\" aewm++_xsession - keep an xsession alive
+.\" by Frank Hale
+.\" Released under the terms of the GNU GPL. www.gnu.org
+.\" Free software! Please see README for details and license. --
+.TH aewm++_xsession 1
+.SH "NAME"
+aewm++_xsession \- keeps an xsession alive
+.SH "SYNOPSIS"
+.BI aewm++_xsession
+
+.SH DESCRIPTION
+.B aewm++_xsession
+does nothing more than keep the session alive if the window manager dies or is killed.
+
+Common usage of this program is as follows: edit ~/.xinitrc and add
+
+.sp 1n
+.PD 0
+.TP
+aewm++ &
+.TP
+exec aewm++_xsession
+.PD
+.LP
+
+Now if aewm++ dies or is killed off then X does die. You can safely start
+another window manager from the command line or an xterm window.
+
+.SH "AUTHOR"
+aewm++_xsession is supplied with aewm++ by Frank Hale <frankhale@yahoo.com>
+
+.SH "WEBSITE"
+http://sapphire.sourceforge.net/

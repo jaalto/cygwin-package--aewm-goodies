@@ -1,0 +1,27 @@
+ xsession/Makefile |   18 ++++++++++++++++++
+ 1 files changed, 18 insertions(+), 0 deletions(-)
+
+diff --git a/xsession/Makefile b/xsession/Makefile
+new file mode 100644
+index 0000000..fc32f6a
+--- /dev/null
++++ b/xsession/Makefile
+@@ -0,0 +1,18 @@
++CC        = gcc
++CFLAGS    = -g -O2 -Wall
++IFLAGS    = 
++
++PROG      = aewm++_xsession
++PREFIX    = /usr
++
++$(PROG): xsession.c
++	$(CC) xsession.c -o $@
++
++install: $(PROG)
++	install -m 755 -D $(IFLAGS) $(PROG) $(DESTDIR)$(PREFIX)/bin/$(PROG)
++	
++uninstall:
++	rm -f $(DESTDIR)$(PREFIX)/bin/$(PROG)
++
++clean:
++	rm -f $(PROG) *.exe core

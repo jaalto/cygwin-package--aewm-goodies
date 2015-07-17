@@ -1,0 +1,30 @@
+ ae_fspanel-1.0/Makefile |   13 +++++++------
+ 1 files changed, 7 insertions(+), 6 deletions(-)
+
+diff --git a/ae_fspanel-1.0/Makefile b/ae_fspanel-1.0/Makefile
+index 2c8a26a..597841b 100644
+--- a/ae_fspanel-1.0/Makefile
++++ b/ae_fspanel-1.0/Makefile
+@@ -1,15 +1,16 @@
+ CC = gcc
+ prefix=/usr
+-C_FLAGS = -DNOSTDLIB -DHAVE_XPM -Wall -I/usr/X11R6/include -m386 -malign-loops=2 -malign-jumps=2 -malign-functions=2
+-L_FLAGS = -O1 -Xlinker -s -L/usr/X11R6/lib -lX11 -lXpm
+-PROGNAME = ae_fspanel
++C_FLAGS = -DNOSTDLIB -DHAVE_XPM -Wall -I/usr/X11R6/include -m386 -falign-loops=2 -falign-jumps=2 -falign-functions=2
++L_FLAGS = -O1 -Xlinker -s -L/usr/lib -L/usr/X11R6/lib -lX11 -lXpm
++PROGNAME = aewm++_fspanel
+ 
+ $(PROGNAME): Makefile ae_fspanel.c ae_fspanel.h icon.xpm
+-	$(CC) $(C_FLAGS) $(L_FLAGS) ae_fspanel.c -o $(PROGNAME)
++	$(CC) $(C_FLAGS) $(CFLAGS) $(L_FLAGS) ae_fspanel.c -o $(PROGNAME) $(L_FLAGS)
+ 	@ls -l $(PROGNAME)
+ 
+ clean: 
+-	rm -f core *.o $(PROGNAME) nohup.out
++	rm -f core *.o $(PROGNAME).exe nohup.out
+ 
+ install: $(PROGNAME)
+-	cp -r $(PROGNAME) $(DESTDIR)$(prefix)/bin
++	install -m 755 -d $(DESTDIR)$(prefix)/bin
++	install -m 755 -s $(PROGNAME) $(DESTDIR)$(prefix)/bin

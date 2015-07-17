@@ -1,0 +1,3 @@
+# Copyright (C) 2007 Jari Aalto; Licenced under GPL v2 or later
+tag1: aewm++-goodies
+  http://packages.debian.org/unstable/aewm++-goodies pregexp:tar.gz file:orig.tar.gz new: x:

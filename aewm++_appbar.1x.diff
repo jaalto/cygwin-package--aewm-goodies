@@ -1,0 +1,14 @@
+=== modified file 'aewm++_appbar.1x'
+--- aewm++_appbar.1x	2007-09-20 09:36:18 +0000
++++ aewm++_appbar.1x	2007-09-20 09:39:49 +0000
+@@ -177,8 +177,7 @@
+ 
+ .SH "AUTHOR"
+ appbar is supplied with aewm++ by Frank Hale <frankhale@yahoo.com>.
+-
+-appbar was renamed to aewm++_appbar for the Debian package.
++It was renamed to aewm++_appbar.
+ 
+ .SH "WEBSITE"
+ http://sapphire.sourceforge.net/
+
