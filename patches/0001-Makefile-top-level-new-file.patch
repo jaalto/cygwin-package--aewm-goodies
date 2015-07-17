@@ -1,3 +1,7 @@
+From: <jari.aalto@cante.net>
+Date: 2015-07-17
+Project: www.cygwin.com
+
 diff --git a/Makefile b/Makefile
 new file mode 100644
 index 0000000..03d19b4

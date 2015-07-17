@@ -1,3 +1,7 @@
+From: <jari.aalto@cante.net>
+Date: 2015-07-17
+Project: www.cygwin.com
+
  xsession/Makefile |   18 ++++++++++++++++++
  1 files changed, 18 insertions(+), 0 deletions(-)
 

@@ -1,3 +1,7 @@
+From: <jari.aalto@cante.net>
+Date: 2015-07-17
+Project: www.cygwin.com
+
  appbar-1.0/Makefile   |   18 ++++++++++--------
  appbar-1.0/appbar.cc  |    1 +
  appbar-1.0/appbar.rc  |   20 ++++++++++----------
