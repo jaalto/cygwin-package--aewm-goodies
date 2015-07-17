@@ -1,10 +1,11 @@
- appbar-1.0/Makefile  |   18 ++++++++++--------
- appbar-1.0/appbar.rc |   20 ++++++++++----------
- appbar-1.0/icon.cc   |    2 ++
- 3 files changed, 22 insertions(+), 18 deletions(-)
+ appbar-1.0/Makefile   |   18 ++++++++++--------
+ appbar-1.0/appbar.cc  |    1 +
+ appbar-1.0/appbar.rc  |   20 ++++++++++----------
+ appbar-1.0/icon.cc    |    2 ++
+ appbar-1.0/scanner.cc |    1 +
+ appbar-1.0/scanner.hh |    6 +++---
+ 6 files changed, 27 insertions(+), 21 deletions(-)
 
-diff --git a/appbar-1.0/Makefile b/appbar-1.0/Makefile
-index 8ede151..40620b5 100644
 --- a/appbar-1.0/Makefile
 +++ b/appbar-1.0/Makefile
 @@ -5,7 +5,7 @@ INCLUDES  = -I$(prefix)/include
@@ -38,8 +39,6 @@ index 8ede151..40620b5 100644
  clean:
 -	rm -f $(PROG) $(OBJS) core
 +	rm -f $(PROG) *.exe $(OBJS) core
-diff --git a/appbar-1.0/appbar.rc b/appbar-1.0/appbar.rc
-index c845d30..2f37b73 100644
 --- a/appbar-1.0/appbar.rc
 +++ b/appbar-1.0/appbar.rc
 @@ -14,51 +14,51 @@ appbar_color_to {
@@ -104,8 +103,6 @@ index c845d30..2f37b73 100644
 +	image = /usr/share/appbar/images/icq.xpm; 
  	execute = licq;
  }
-diff --git a/appbar-1.0/icon.cc b/appbar-1.0/icon.cc
-index c3e4d1a..f0c410a 100644
 --- a/appbar-1.0/icon.cc
 +++ b/appbar-1.0/icon.cc
 @@ -35,6 +35,8 @@
@@ -117,3 +114,45 @@ index c3e4d1a..f0c410a 100644
  char * default_icon_xpm[] = {
  "16 16 16 1",
  " 	c None",
+--- a/appbar-1.0/scanner.hh
++++ b/appbar-1.0/scanner.hh
+@@ -25,8 +25,8 @@
+ #ifndef _SCANNER_HH_
+ #define _SCANNER_HH_
+ 
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include <cstdlib>
+ #include <string>
+ 
+@@ -57,7 +57,7 @@ private:
+ 	
+ 	char_codes char_class[128];
+ 
+-	ifstream inputFile;
++	std::ifstream inputFile;
+ 
+ 	long backup_pos;
+ 	
+--- a/appbar-1.0/appbar.cc
++++ b/appbar-1.0/appbar.cc
+@@ -21,6 +21,7 @@
+  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+  */
+  
++using namespace std;
+ #include "appbar.hh"
+ 
+ Appbar *ab;
+--- a/appbar-1.0/scanner.cc
++++ b/appbar-1.0/scanner.cc
+@@ -21,6 +21,7 @@
+  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+  */
+ 
++using namespace std;
+ #include "scanner.hh"
+ 
+ Scanner::Scanner(char* filename)
