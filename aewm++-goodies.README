@@ -17,6 +17,7 @@ Runtime requirements:
   libstdc++6
 
 Build requirements:
+  quilt
   libX11-devel
   libXext-devel
   libXpm4-noX-devel
@@ -74,7 +75,8 @@ Port Notes:
 - No manual pages. Copied from Debian.
 
 ----- version 1.0-2 -----
-- New upstream release 2015-07-17 Jari Aalto
+- New release 2015-07-17 Jari Aalto
+- Port to latest g++ 4.9.3 and x64. Use quilt for patches
 
 ----- version 1.0-1 -----
 - Initial release 2007-09-20 Jari Aalto
